@@ -1,0 +1,96 @@
+# TEMPLATE with FICTIONAL values. Copy to profile.yaml and replace every value with your own facts (profile.yaml is git-ignored).
+# Every fact the bot may state about you. Nothing outside this file, projects.yaml and your resumes is ever claimed.
+personal:
+  first_name: "Jane"
+  last_name: "Doe"
+  email: "jane.doe@example.com"
+  phone_country_code: "+216"
+  phone_national: "20123456"            # +216 20 123 456 (fictional)
+  civility: "Monsieur"                  # Mr / Mme
+  date_of_birth: "2000-01-01"
+  address: "Tunis"
+  postal_code: "1000"
+  city: "Tunis"
+  country: "Tunisia"
+  country_fr: "Tunisie"
+  nationality: "Tunisian"
+  linkedin_url: "https://www.linkedin.com/in/jane-doe-example/"
+  github_url: "https://github.com/janedoe-example"
+  portfolio_url: "https://github.com/janedoe-example"
+education:
+  school: "National Institute of Applied Sciences and Technology (INSAT)"
+  degree: "Engineering degree"
+  field: "Networks and Telecommunications"
+  graduation_date: "2027-06-30"
+  gpa: "14.00/20"
+internship:
+  start_date: "2027-02-01"
+  duration_months: 6
+  willing_to_relocate: true
+  willing_onsite_or_hybrid: true
+work_eligibility:
+  home_country: "Tunisia"               # authorized to work here without sponsorship
+  needs_sponsorship_elsewhere: true     # everywhere else: "authorized now?" -> No, "need sponsorship/visa?" -> Yes
+  eu_citizen: false
+  over_18: true
+experience:
+  total_years: 1                        # sum of internships
+  # years per skill, used for "how many years of experience with X?". A skill not listed -> review list, never a guess.
+  skills_years:
+    devops: 1
+    cloud: 1
+    sre: 1
+    devsecops: 1
+    infrastructure: 1
+    kubernetes: 1
+    k8s: 1
+    eks: 1
+    docker: 1
+    terraform: 1
+    aws: 1
+    azure: 1
+    linux: 1
+    bash: 1
+    python: 1
+    ci/cd: 1
+    cicd: 1
+    gitlab: 1
+    github actions: 1
+    argocd: 1
+    gitops: 1
+    ansible: 1
+    helm: 1
+    prometheus: 1
+    grafana: 1
+    datadog: 1
+    cloudwatch: 1
+    git: 1
+    sql: 1
+    postgresql: 1
+    nestjs: 1
+    fastapi: 1
+    java: 1
+    javascript: 1
+    networking: 1
+    reseaux: 1
+    kvm: 1
+    llm: 1
+    rag: 1
+languages:            # CEFR levels
+  Arabic: "C2"        # native
+  English: "C1"
+  French: "B2"
+  German: "A1"
+native_languages: ["Arabic"]
+certifications:
+  - "Certified Kubernetes Administrator (CKA), 2026"
+  - "AWS Certified Solutions Architect - Associate, 2026"
+past_employers: ["Initech Corp", "ExampleNet", "Sample Labs", "Demo Inc"]
+# Companies you already applied to OUTSIDE this bot (the bot remembers its own applications). Used for
+# "have you applied / interviewed with us before?" -> Yes for these, No otherwise.
+previously_applied_companies: []
+salary_expectation: ""                  # "" -> text fields get "Negotiable"/"À négocier"; numeric salary fields go to review
+# Your own overrides, checked FIRST (regex on the question, case-insensitive, accents removed).
+# Optional keys: country / not_country (offer country). Example:
+#   - { pattern: "driving licen[cs]e|permis de conduire", value: "Yes" }
+answers: []

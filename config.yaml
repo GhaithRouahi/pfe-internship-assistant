@@ -1,0 +1,75 @@
+# --- Target: end-of-studies (PFE) internship in DevOps / Cloud ---
+# Searches = every keyword x every country (the per-run cap stops it early). Order of countries = priority.
+keywords: ["PFE DevOps internship", "cloud engineer internship", "SRE intern", "DevSecOps intern", "Kubernetes intern", "MLOps intern", "platform engineer intern", "infrastructure engineer intern", "AWS cloud intern", "site reliability engineer internship", "stage de fin d'études DevOps", "stage ingénieur cloud", "Terraform intern", "cloud security intern", "remote DevOps intern", "remote cloud engineer internship", "DevOps intern visa sponsorship", "relocation internship cloud engineer", "remote SRE intern"]
+local_keywords:           # extra queries in the local language
+  France: ["stage PFE DevOps", "stage fin d'études cloud"]
+  Belgium: ["stage DevOps", "stage cloud"]
+  Luxembourg: ["stage DevOps"]
+  Switzerland: ["stage DevOps", "Praktikum DevOps"]
+  Germany: ["Praktikum DevOps", "Abschlussarbeit DevOps cloud"]
+  Austria: ["Praktikum DevOps"]
+  Netherlands: ["DevOps stage"]
+  Spain: ["prácticas DevOps cloud"]
+  Tunisia: ["stage PFE DevOps", "PFE cloud kubernetes"]
+countries: [France, Germany, Netherlands, Belgium, Luxembourg, Switzerland, Ireland, Austria, Spain, Portugal, Italy, Sweden, Denmark,
+            Finland, Norway, Poland, "United Kingdom", Canada, "United Arab Emirates", Qatar, "Saudi Arabia", Tunisia, Remote]
+# indeed is off: it shows a bot check ("Vérification supplémentaire requise") to automated browsers.
+sites: [linkedin, wttj, generic]
+
+# --- Fit filters (whole words, accents ignored) ---
+internship_words: ["stage", "stagiaire", "pfe", "intern", "internship", "end of studies", "end-of-studies", "fin d'etudes",
+                   "fin d'études", "praktikum", "praktikant", "praktikantin", "abschlussarbeit", "thesis", "master thesis", "practicas", "prácticas", "trainee"]
+title_must_exclude_any: ["alternance", "alternant", "alternante", "apprenti", "apprentie", "apprentissage", "apprenticeship", "werkstudent",
+                         "working student", "cdi", "freelance"]
+seniority_exclude: ["senior", "sr", "lead", "principal", "staff", "head of", "manager", "director", "directeur"]
+role_keywords: [devops, devsecops, cloud, sre, "site reliability", kubernetes, k8s, terraform, aws, azure, gcp, "platform engineer",
+                platform, plateforme, infrastructure, infra, "ci/cd", "infrastructure as code", iac, gitops, docker, observability,
+                observabilite, "systems engineer", "ingenieur systemes", mlops, sysops, "cloud ops", cloudops, automation, automatisation]
+exclude_roles: [frontend, "front-end", "front end", mobile, ios, android, marketing, sales, "data analyst", comptable, comptabilite,
+                "ressources humaines", juridique, "business developer", commercial]
+min_match_score: 0.45      # heuristic fit 0..1
+llm_fit_min: 65            # LLM's 0..100 second opinion
+
+# Offers that mention any of these get a score bonus (used to non-EU interns)
+visa_friendly: ["visa sponsorship", "sponsor(s|ing)? visas?", "relocation (support|assistance|package)", "hosting agreement",
+                "convention de stage", "work permit (provided|support)", "international (students|candidates)", "blue card"]
+# Offers outside Tunisia whose text matches any of these are skipped (you need sponsorship / a convention de stage)
+visa_blockers: ["no (visa )?sponsorship", "(not|unable|cannot|can't) (able to )?(offer |provide )?(visa )?sponsor", "must (already )?(be authori[sz]ed|have the (legal )?right) to work",
+                "(eu|ue|european|us|u[.]s[.]) (citizens?|residents?|nationals?) only", "citoyen(s)? (de l'ue|europ[ée]en)",
+                "not (be )?eligible for (immigration |visa )?sponsorship", "(does not|doesn't|will not|won't) (sponsor|provide)[a-z /]{0,25}(visa|work permit)",
+                "(ne|n') ?(propos|fourni|parrain|accompagn)[a-z]* (pas|aucun)[a-z ]{0,20}(visa|permis de travail)"]
+
+# Offers requiring a language level you don't have, or that are graduate programs, are skipped (regex on the offer text)
+requirement_blockers:
+  - '(verhandlungssicher|flie(ss|ß)end|sehr gut|exzellent|muttersprachlich)\w*\s+(deutsch|german)'
+  - '(deutsch|german)(kenntnisse)?\s*(auf\s*)?(c1|c2|muttersprach|verhandlungssicher|flie(ss|ß)end)'
+  - '(fluent|native|proficient|business[- ]level)\s+(in\s+)?(german|dutch|swedish|danish|norwegian|finnish|polish|italian|spanish|portuguese)'
+  - '(german|dutch|swedish|danish|norwegian|finnish|polish|italian|spanish|portuguese)\s+(is\s+)?(required|mandatory|a must)'
+  - '(vloeiend|uitstekend)\s+nederlands|nederlands\s+(is\s+)?vereist'
+  - '(profound|very good|excellent|strong|fluent|good)\s+(written and spoken\s+|communication\s+|language\s+)?(skills|knowledge|command)\s+(of|in)\s+(both\s+)?(german|dutch)'
+  - 'traineeprogramm|graduate (trainee )?programme? for graduates|abgeschlossenes? (studium|hochschulstudium)'
+
+# --- What may be submitted automatically ---
+submit_policy:
+  allow_llm_free_text: true    # motivation / "why us" answers + cover letter written by the AI from your facts only
+  allow_llm_choices: false     # screening answers the AI had to judge -> review list instead of submitting
+enforce_contact_fields: true   # replace prefilled email/phone (e.g. LinkedIn's) with the ones in profile.yaml
+attach_cover_letter_when_optional: true
+
+# --- Who fills the forms ---
+# claude: main.py only searches, selects and prepares (resume + cover letter); Claude then fills each form itself with agent.py
+# auto:   the scripted engine fills forms (kept as a fallback)
+apply_mode: claude
+
+# --- Safety / pacing ---
+include_external_apply: true   # also handle offers that apply on the company site
+dry_run: true                  # true = fill everything but never press the final Submit
+max_applications_per_run: 10   # offers selected (claude mode) or applied/dry-run (auto mode) per run
+delay_between_actions_sec: [1.5, 4.0]
+delay_between_jobs_sec: [20, 60]
+delay_between_pages_sec: [4, 9]   # between opening offer pages (LinkedIn throttles fast browsing)
+
+llm:
+  enabled: true
+  model: gpt-5.4-mini          # Azure deployment name
+

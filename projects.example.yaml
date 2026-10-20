@@ -1,0 +1,160 @@
+# TEMPLATE. Copy to projects.yaml and describe YOUR projects (git-ignored). Only facts listed here are ever claimed in cover texts / answers.
+projects:
+- name: 'Initech Corp: Cloud infrastructure (internship, 2026-present)'
+  tags:
+  - aws
+  - terraform
+  - eks
+  - kubernetes
+  - vpc
+  - iam
+  - irsa
+  - secrets manager
+  - helm
+  - gitlab
+  - gitlab ci
+  - gitlab ci/cd
+  - cloudwatch
+  - datadog
+  - observability
+  - cloudfront
+  - cloudflare
+  - cdn
+  - cis benchmark
+  - gdpr
+  - hpa
+  - autoscaling
+  - probes
+  - sonarqube
+  - ci/cd
+  - devsecops
+  - microservices
+  - security
+  summary: Provisioned multi-environment cloud infrastructure with Terraform and deployed microservices to Kubernetes with Helm; added autoscaling and monitoring.
+  resume: devops
+- name: 'ExampleNet: VM management platform (SRE internship)'
+  tags:
+  - kvm
+  - qemu
+  - linux
+  - cloud-init
+  - virtualization
+  - vm
+  - bash
+  - docker
+  - sre
+  - automation
+  - infrastructure
+  - bare-metal
+  - cost
+  - on-prem
+  summary: Built an internal VM platform on KVM/QEMU and automated provisioning with cloud-init.
+  resume: devops
+- name: Kubernetes Security System
+  tags:
+  - kubernetes
+  - argocd
+  - gitops
+  - github actions
+  - opa
+  - gatekeeper
+  - falco
+  - prometheus
+  - grafana
+  - devsecops
+  - security
+  - monitoring
+  - ci/cd
+  - remediation
+  summary: Built a Kubernetes DevSecOps environment with GitHub Actions, ArgoCD, OPA Gatekeeper, Falco, Prometheus and Grafana.
+  resume: devops
+- name: CI/CD Pipeline Automation & DevOps
+  tags:
+  - github actions
+  - ci/cd
+  - docker
+  - gitops
+  - iac
+  - security scanning
+  - pipeline
+  - deployment
+  - jenkins
+  summary: Implemented GitHub Actions pipelines covering tests, security scanning, Docker builds and automated deployments.
+  resume: devops
+- name: Infrastructure Automation with Terraform (Azure)
+  tags:
+  - terraform
+  - azure
+  - iac
+  - infrastructure as code
+  - vnet
+  - nsg
+  - cloud
+  - aks
+  - ansible
+  summary: Automated Azure infrastructure deployments with Terraform modules.
+  resume: devops
+- name: 'Sample Labs: self-hosted LLM / RAG platform'
+  tags:
+  - llm
+  - rag
+  - nestjs
+  - next.js
+  - docker
+  - ci/cd
+  - self-hosted
+  - ollama
+  - ai
+  - inference
+  - containerization
+  summary: Built a full-stack AI application with a self-hosted LLM and a RAG pipeline.
+  resume: devops_ai
+- name: 'Demo Pipeline: multi-agent microservices platform'
+  tags:
+  - microservices
+  - docker
+  - message queue
+  - agents
+  - orchestration
+  - automation
+  - python
+  - ai
+  - langgraph
+  summary: Built a multi-agent platform of containerized services communicating through a message queue.
+  resume: devops_ai
+skills:
+- docker
+- kubernetes
+- terraform
+- github actions
+- argocd
+- ansible
+- prometheus
+- grafana
+- aws
+- azure
+- eks
+- linux
+- bash
+- python
+- ci/cd
+- gitops
+- devsecops
+- cloud
+- sre
+- ansible
+- elk
+- kvm
+- iac
+- security
+- monitoring
+- microservices
+- jenkins
+- helm
+- gitlab
+- datadog
+- cloudwatch
+- sonarqube
+- gitlab ci
+- gitlab ci/cd
+- gitlab pipelines

@@ -1,0 +1,8 @@
+# TEMPLATE. Copy to resumes.yaml; put your PDFs in resumes/ (git-ignored). Each key is a resume variant the matcher can choose.
+resumes:
+  devops:        # DevOps/Cloud/SRE/DevSecOps/Kubernetes/AWS offers (default)
+    file: "resumes/Resume_Your_Name.pdf"
+    focus: [devops, cloud, kubernetes, terraform, aws, sre, devsecops, infrastructure, ci/cd, platform]
+  devops_ai:     # DevOps + AI hybrid: MLOps, LLM/AI platform infra
+    file: "resumes/Resume_Your_Name_DevOps_AI.pdf"
+    focus: [mlops, llmops, llm, ai platform, ai infrastructure, inference, agent, agentic, rag, machine learning, research, gpu]

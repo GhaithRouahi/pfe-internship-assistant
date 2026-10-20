@@ -1,0 +1,33 @@
+<!doctype html><meta charset=utf-8><title>Acme careers</title>
+<nav><input type=text placeholder="Search jobs" aria-label="Search jobs"><input type=text aria-label="Location"></nav>
+<main><h1>DevOps Intern</h1>
+<form id=f onsubmit="event.preventDefault(); document.body.insertAdjacentHTML('beforeend','<h2>Thank you for applying!</h2>')">
+ <label for=first>First Name *</label><input id=first required>
+ <label for=last>Last Name *</label><input id=last required>
+ <label for=email>Email *</label><input id=email type=email required>
+ <label for=phone>Phone *</label><input id=phone type=tel required>
+ <label for=res>Resume/CV *</label><input id=res type=file required>
+ <label for=cl>Cover Letter</label><input id=cl type=file>
+ <label for=tr>Transcript</label><input id=tr type=file>
+ <label for=li>LinkedIn Profile</label><input id=li>
+ <label id=lab_auth>Are you legally authorized to work in Germany? *</label>
+ <input id=cbi role=combobox aria-labelledby=lab_auth aria-autocomplete=list required readonly>
+ <ul role=listbox id=lb hidden><li role=option>Yes</li><li role=option>No</li></ul>
+ <label for=city>Location (City) *</label><input id=city role=combobox aria-autocomplete=list required>
+ <ul role=listbox id=lb2 hidden></ul>
+ <label for=start>Start date *</label><input id=start type=date required>
+ <label for=sal>Desired salary</label><input id=sal type=number>
+ <label for=why>Why do you want to work at Acme?</label><textarea id=why maxlength=400></textarea>
+ <label for=hear>How did you hear about this job? *</label><select id=hear required><option value="">Please select</option><option>LinkedIn</option><option>Referral</option><option>Other</option></select>
+ <label><input type=checkbox id=gdpr required> I consent to the processing of my personal data (privacy policy) *</label>
+ <label><input type=checkbox id=news> Keep me informed about future opportunities (talent community)</label>
+ <button type=submit>Submit application</button>
+</form></main>
+<script>
+const cbi=document.getElementById('cbi'), lb=document.getElementById('lb');
+cbi.addEventListener('click',()=>lb.hidden=false);
+for (const li of lb.children) li.addEventListener('click',()=>{cbi.value=li.innerText; lb.hidden=true});
+const city=document.getElementById('city'), lb2=document.getElementById('lb2');
+city.addEventListener('input',()=>{ lb2.innerHTML = city.value.toLowerCase().startsWith('tun') ? '<li role=option>Tunis, Tunis, Tunisia</li><li role=option>Tunis, Tunis, Tunisie</li>' : ''; lb2.hidden=false;
+  for (const li of lb2.children) li.addEventListener('click',()=>{city.value=li.innerText; lb2.hidden=true}) });
+</script>

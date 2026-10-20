@@ -1,0 +1,32 @@
+<!doctype html><meta charset=utf-8><body>
+<header><input aria-label="Rechercher" value=""></header>
+<dialog open id=d><h2>Postuler chez Acme</h2>
+<div id=s1>
+  <label for=fn>First name*</label><input id=fn required value="Jane">
+  <label for=ln>Last name*</label><input id=ln required value="Doe">
+  <label for=cc>Code pays</label><select id=cc><option value="Select an option">Sélectionnez une option</option><option value="fr">France (+33)</option><option value="tn" selected>Tunisie (+216)</option></select>
+  <label for=ph>Mobile phone number</label><input id=ph value="56106023">
+  <label for=em>Email address*</label><select id=em required><option value="Select an option">Sélectionnez une option</option><option value="a" selected>jane.doe.linkedin@example.com</option></select>
+  <footer><button aria-label="Passez à l’étape suivante" onclick="go(2)">Suivant</button></footer>
+</div>
+<div id=s2 hidden><h3>CV</h3><label for=cv>Importer le CV</label><input type=file id=cv style="display:none">
+  <div id=cvname></div><button onclick="go(1)">Retour</button><button aria-label="Passez à l’étape suivante" onclick="go(3)">Suivant</button></div>
+<div id=s3 hidden><h3>Questions supplémentaires</h3>
+  <label for=y1>Combien d'années d'expérience avez-vous en Kubernetes ?*</label><input id=y1 required>
+  <fieldset><legend>Êtes-vous légalement autorisé(e) à travailler en France ?*</legend>
+    <input type=radio name=auth id=a1 value=Oui><label for=a1>Oui</label><input type=radio name=auth id=a2 value=Non><label for=a2>Non</label></fieldset>
+  <fieldset><legend>Aurez-vous besoin d'un parrainage pour un visa ?*</legend>
+    <input type=radio name=spon id=b1><label for=b1>Oui</label><input type=radio name=spon id=b2><label for=b2>Non</label></fieldset>
+  <label for=lv>Quel est votre niveau de maîtrise de la langue Anglais ?*</label>
+  <select id=lv required><option value="Select an option">Sélectionnez une option</option><option>Aucune</option><option>Notions</option><option>Compétence professionnelle limitée</option><option>Compétence professionnelle</option><option>Compétence professionnelle complète</option><option>Bilingue ou langue maternelle</option></select>
+  <button onclick="go(2)">Retour</button><button aria-label="Vérifier votre candidature" onclick="go(4)">Vérifier</button></div>
+<div id=s4 hidden><h3>Vérifiez votre candidature</h3>
+  <input type=checkbox id=fol checked><label for=fol>Suivre Acme pour être informé(e) de l’actualité</label>
+  <footer><button aria-label="Envoyer la candidature" onclick="document.body.insertAdjacentHTML('beforeend','<p>Votre candidature a été envoyée</p>')">Envoyer la candidature</button></footer></div>
+</dialog>
+<footer><form><label for=nl>Newsletter email</label><input id=nl type=email></form></footer>
+<script>
+function go(n){ if(n==3 && !document.getElementById('cv').files.length){return}
+ for(const i of [1,2,3,4]) document.getElementById('s'+i).hidden = i!=n }
+document.getElementById('cv').addEventListener('change', e => document.getElementById('cvname').innerText = e.target.files[0].name)
+</script>

@@ -1,0 +1,18 @@
+# Secrets and personal data: NEVER commit these
+.env
+profile.yaml
+projects.yaml
+resumes.yaml
+resumes/*
+!resumes/.gitkeep
+# runtime data: browser profile (logins/cookies), application database, screenshots, cover letters, drafts, logs
+data/*
+!data/.gitkeep
+
+__pycache__/
+*.pyc
+*.db
+*.log
+.vscode/
+.idea/
+.claude/
